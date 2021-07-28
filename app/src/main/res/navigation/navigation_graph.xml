@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.cloud.kutuphane.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signupFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.cloud.kutuphane.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_userMainFragment"
+            app:destination="@id/userMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userMainFragment"
+        android:name="com.cloud.kutuphane.UserMainFragment"
+        android:label="fragment_user_main"
+        tools:layout="@layout/fragment_user_main" >
+        <argument
+            android:name="userName"
+            app:argType="string"
+            android:defaultValue="empty" />
+        <action
+            android:id="@+id/action_userMainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_userMainFragment_to_bookListFragment"
+            app:destination="@id/bookListFragment" />
+        <action
+            android:id="@+id/action_userMainFragment_to_returnBookFragment"
+            app:destination="@id/returnBookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookListFragment"
+        android:name="com.cloud.kutuphane.BookListFragment"
+        android:label="fragment_book_list"
+        tools:layout="@layout/fragment_book_list" >
+        <action
+            android:id="@+id/action_bookListFragment_to_bookIntroductionFragment"
+            app:destination="@id/bookIntroductionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookIntroductionFragment"
+        android:name="com.cloud.kutuphane.BookIntroductionFragment"
+        android:label="fragment_book_introduction"
+        tools:layout="@layout/fragment_book_introduction" >
+        <argument
+            android:name="bookId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/returnBookFragment"
+        android:name="com.cloud.kutuphane.ReturnBookFragment"
+        android:label="fragment_return_book"
+        tools:layout="@layout/fragment_return_book" />
+</navigation>
